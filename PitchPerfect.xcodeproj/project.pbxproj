@@ -15,6 +15,7 @@
 		6EBF3B1D1DD46A8100C8F26A /* PitchPerfectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF3B1C1DD46A8100C8F26A /* PitchPerfectTests.swift */; };
 		6EBF3B281DD46A8100C8F26A /* PitchPerfectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF3B271DD46A8100C8F26A /* PitchPerfectUITests.swift */; };
 		6EBF3B361DD4920000C8F26A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF3B351DD4920000C8F26A /* Assets.xcassets */; };
+		6EF5D6741DD7DB4D00934CB8 /* PlayAudioViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF5D6731DD7DB4D00934CB8 /* PlayAudioViewController+Audio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6EBF3B271DD46A8100C8F26A /* PitchPerfectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchPerfectUITests.swift; sourceTree = "<group>"; };
 		6EBF3B291DD46A8100C8F26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EBF3B351DD4920000C8F26A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6EF5D6731DD7DB4D00934CB8 /* PlayAudioViewController+Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlayAudioViewController+Audio.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				6EBF3B071DD46A8100C8F26A /* AppDelegate.swift */,
 				6EBF3B091DD46A8100C8F26A /* RecordAudioViewController.swift */,
 				6E7C68461DD5023D00124182 /* PlayAudioViewController.swift */,
+				6EF5D6731DD7DB4D00934CB8 /* PlayAudioViewController+Audio.swift */,
 				6EBF3B351DD4920000C8F26A /* Assets.xcassets */,
 				6EBF3B0B1DD46A8100C8F26A /* Main.storyboard */,
 				6EBF3B101DD46A8100C8F26A /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 			files = (
 				6EBF3B0A1DD46A8100C8F26A /* RecordAudioViewController.swift in Sources */,
 				6EBF3B081DD46A8100C8F26A /* AppDelegate.swift in Sources */,
+				6EF5D6741DD7DB4D00934CB8 /* PlayAudioViewController+Audio.swift in Sources */,
 				6E7C68471DD5023D00124182 /* PlayAudioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

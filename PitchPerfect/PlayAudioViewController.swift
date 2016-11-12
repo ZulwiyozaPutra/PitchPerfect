@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayAudioViewController: UIViewController {
     
@@ -20,13 +21,21 @@ class PlayAudioViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     var recordedAudioURL: NSURL!
+    var audioFile: AVAudioFile
+    var audioEngine: AVAudioEngine!
+    var audioPlayerNode: AVAudioPlayerNode!
+    var stopTimer: Timer!
+    
+    enum ButtonType: Int {
+        case slow = 0, fast, chipmunk, vader, echo, reverb
+    }
     
     @IBAction func playAudioForButton(_ sender: UIButton) {
-        print("Play Sound Button Tapped")
+        print("Play Sound \(sender) Button Tapped")
     }
     
     @IBAction func stopButton(_ sender: AnyObject) {
-        print("Stop Audio Button Tapped")
+        print("Stop Audio \(sender) Button Tapped")
     }
 
     override func viewDidLoad() {
@@ -34,6 +43,11 @@ class PlayAudioViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureUI(.notPlaying)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
