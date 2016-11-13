@@ -32,6 +32,7 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func recordButton(_ sender: Any) {
         print("recordButton is tapped")
         recordingLabel.text = "Recording"
+        recordingLabel.textColor = UIColor.red
         stopRecordingButtonOutlet.isEnabled = true
         recordButtonOutlet.isEnabled = false
         
@@ -55,6 +56,7 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func stopRecordingButton(_ sender: Any) {
         print("stopRecordingButton is tapped")
         recordingLabel.text = "Tap to Record"
+        recordingLabel.textColor = UIColor.black
         recordButtonOutlet.isEnabled = true
         stopRecordingButtonOutlet.isEnabled = false
         audioRecorder.stop()

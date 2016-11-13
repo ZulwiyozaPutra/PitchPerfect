@@ -131,31 +131,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnX-oO-pT9" userLabel="Record Button">
-                                <rect key="frame" x="108" y="248" width="158" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Microphone"/>
-                                <connections>
-                                    <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oO5-gV-hE6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InI-gg-QUM" userLabel="Stop Recording Button">
-                                <rect key="frame" x="100" y="395" width="175" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Stop"/>
-                                <connections>
-                                    <action selector="stopRecordingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a8V-if-yHM"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EJ-bP-1hb">
-                                <rect key="frame" x="134" y="366" width="107" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="0o5-kx-seC">
+                                <rect key="frame" x="134" y="217.5" width="107" height="232.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnX-oO-pT9" userLabel="Record Button">
+                                        <rect key="frame" x="3.5" y="0.0" width="100" height="100"/>
+                                        <state key="normal" image="Microphone"/>
+                                        <connections>
+                                            <action selector="recordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oO5-gV-hE6"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EJ-bP-1hb">
+                                        <rect key="frame" x="0.0" y="131" width="107" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InI-gg-QUM" userLabel="Stop Recording Button">
+                                        <rect key="frame" x="28.5" y="182.5" width="50" height="50"/>
+                                        <state key="normal" image="Stop"/>
+                                        <connections>
+                                            <action selector="stopRecordingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a8V-if-yHM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0o5-kx-seC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V0M-sg-aPK"/>
+                            <constraint firstItem="0o5-kx-seC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uYJ-eU-dJO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hes-Va-lhQ"/>
                     <connections>
