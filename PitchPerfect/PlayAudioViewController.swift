@@ -62,6 +62,15 @@ class PlayAudioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        setupUI()
+        setupSpeaker()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureUI(.notPlaying)
+    }
+    
+    func setupUI() {
         snailButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         chipmunkButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         rabbitButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
@@ -69,12 +78,11 @@ class PlayAudioViewController: UIViewController {
         echoButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         reverbButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         stopButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
-        
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        configureUI(.notPlaying)
+    func setupSpeaker() {
+        let session = AVAudioSession.sharedInstance()
+        try! session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
     }
 
 }
