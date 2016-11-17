@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var recordButtonOutlet: UIButton!
     
@@ -71,7 +71,25 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate {
         if (flag) {
             self.performSegue(withIdentifier: "stopRecordingSegue", sender: audioRecorder.url)
         } else {
-            print("Saving of recording failed")
+            let alertController = UIAlertController(title: "Alert", message: "Are you okay?", preferredStyle: .alert)
+            
+            // Initialize Actions
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) -> Void in
+                print("The user is okay.")
+            }
+            
+            let noAction = UIAlertAction(title: "No", style: .default) { (action) -> Void in
+                print("The user is not okay.")
+            }
+            
+            // Add Actions
+            alertController.addAction(yesAction)
+            alertController.addAction(noAction)
+            
+            // Present Alert Controller
+            self.present(alertController, animated: true, completion: nil)
+            
+            print("Error")
         }
     }
     
