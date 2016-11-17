@@ -17,8 +17,6 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate, UIAl
     
     @IBOutlet weak var stopRecordingButtonOutlet: UIButton!
     
-    
-    
     var audioRecorder: AVAudioRecorder!
     
     override func viewDidLoad() {
@@ -33,10 +31,7 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate, UIAl
     
     @IBAction func recordButton(_ sender: Any) {
         print("recordButton is tapped")
-        recordingLabel.text = "Recording"
-        recordingLabel.textColor = UIColor.red
-        stopRecordingButtonOutlet.isEnabled = true
-        recordButtonOutlet.isEnabled = false
+        setUIState(isRecording: true, recordingStatus: "Recording", recordingStatusColor: UIColor.red)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         
@@ -57,13 +52,18 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate, UIAl
     
     @IBAction func stopRecordingButton(_ sender: Any) {
         print("stopRecordingButton is tapped")
-        recordingLabel.text = "Tap to Record"
-        recordingLabel.textColor = UIColor.black
-        recordButtonOutlet.isEnabled = true
-        stopRecordingButtonOutlet.isEnabled = false
+        setUIState(isRecording: false, recordingStatus: "Tap to Record", recordingStatusColor: UIColor.black)
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
+    }
+    
+    
+    func setUIState(isRecording: Bool, recordingStatus: String, recordingStatusColor: UIColor) -> Void {
+            recordingLabel.text = recordingStatus
+            recordingLabel.textColor = recordingStatusColor
+            recordButtonOutlet.isEnabled = !isRecording
+            stopRecordingButtonOutlet.isEnabled = isRecording
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
@@ -71,25 +71,12 @@ class RecordAudioViewController: UIViewController, AVAudioRecorderDelegate, UIAl
         if (flag) {
             self.performSegue(withIdentifier: "stopRecordingSegue", sender: audioRecorder.url)
         } else {
-            let alertController = UIAlertController(title: "Alert", message: "Are you okay?", preferredStyle: .alert)
-            
-            // Initialize Actions
-            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) -> Void in
-                print("The user is okay.")
-            }
-            
-            let noAction = UIAlertAction(title: "No", style: .default) { (action) -> Void in
-                print("The user is not okay.")
-            }
-            
-            // Add Actions
-            alertController.addAction(yesAction)
-            alertController.addAction(noAction)
-            
-            // Present Alert Controller
+            let alertController = UIAlertController(title: "Recording Failed", message: "You have not recoreded anything, try again", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: { action in
+                print("Ok button tapped")
+            } )
+            alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
-            
-            print("Error")
         }
     }
     
